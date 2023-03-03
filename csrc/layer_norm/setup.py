@@ -98,8 +98,8 @@ if os.path.exists(os.path.join(torch_dir, "include", "ATen", "CUDAGeneratorImpl.
 raise_if_cuda_home_none("--fast_layer_norm")
 # Check, if CUDA11 is installed for compute capability 8.0
 cc_flag = []
-cc_flag.append("-gencode")
-cc_flag.append("arch=compute_70,code=sm_70")
+# cc_flag.append("-gencode")
+# cc_flag.append("arch=compute_70,code=sm_70")
 cc_flag.append("-gencode")
 cc_flag.append("arch=compute_80,code=sm_80")
 
@@ -108,30 +108,30 @@ ext_modules.append(
         name="dropout_layer_norm",
         sources=[
             "ln_api.cpp",
-            "ln_fwd_256.cu",
-            "ln_bwd_256.cu",
-            "ln_fwd_512.cu",
-            "ln_bwd_512.cu",
-            "ln_fwd_768.cu",
-            "ln_bwd_768.cu",
+#             "ln_fwd_256.cu",
+#             "ln_bwd_256.cu",
+#             "ln_fwd_512.cu",
+#             "ln_bwd_512.cu",
+#             "ln_fwd_768.cu",
+#             "ln_bwd_768.cu",
             "ln_fwd_1024.cu",
             "ln_bwd_1024.cu",
-            "ln_fwd_1280.cu",
-            "ln_bwd_1280.cu",
-            "ln_fwd_1536.cu",
-            "ln_bwd_1536.cu",
-            "ln_fwd_2048.cu",
-            "ln_bwd_2048.cu",
+#             "ln_fwd_1280.cu",
+#             "ln_bwd_1280.cu",
+#             "ln_fwd_1536.cu",
+#             "ln_bwd_1536.cu",
+#             "ln_fwd_2048.cu",
+#             "ln_bwd_2048.cu",
             "ln_fwd_2560.cu",
             "ln_bwd_2560.cu",
-            "ln_fwd_3072.cu",
-            "ln_bwd_3072.cu",
-            "ln_fwd_4096.cu",
-            "ln_bwd_4096.cu",
-            "ln_fwd_5120.cu",
-            "ln_bwd_5120.cu",
-            "ln_fwd_6144.cu",
-            "ln_bwd_6144.cu",
+#             "ln_fwd_3072.cu",
+#             "ln_bwd_3072.cu",
+#             "ln_fwd_4096.cu",
+#             "ln_bwd_4096.cu",
+#             "ln_fwd_5120.cu",
+#             "ln_bwd_5120.cu",
+#             "ln_fwd_6144.cu",
+#             "ln_bwd_6144.cu",
         ],
         extra_compile_args={
             "cxx": ["-O3"] + generator_flag,
